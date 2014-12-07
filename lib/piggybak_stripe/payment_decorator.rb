@@ -4,7 +4,7 @@ module PiggybakStripe
 
     included do
       attr_accessor :stripe_token
-      attr_accessible :stripe_token
+      #attr_accessible :stripe_token
     
       validates_presence_of :stripe_token, :on => :create
     
