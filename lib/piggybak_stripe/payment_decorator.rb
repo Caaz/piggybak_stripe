@@ -6,7 +6,7 @@ module PiggybakStripe
       attr_accessor :stripe_token
       #attr_accessible :stripe_token
 
-      # validates :stripe_token, presence: true
+      validates :stripe_token, presence: true
       # validates_presence_of :stripe_token, :on => :create
 
       [:month, :year, :payment_method_id].each do |field|
@@ -19,9 +19,6 @@ module PiggybakStripe
 
       def process(order)
         return true if !self.new_record?
-        puts(self)
-        puts("/////")
-        puts(order)
 
         calculator = ::PiggybakStripe::PaymentCalculator::Stripe.new(self.payment_method)
         Stripe.api_key = calculator.secret_key
