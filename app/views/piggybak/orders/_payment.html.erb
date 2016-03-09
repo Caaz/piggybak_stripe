@@ -17,8 +17,8 @@
 
 			<div class="item">
 				<%= payment.label :month %>
-				<%= payment.select :month, 1.upto(12).to_a, {:class => "card-expiry-month"} %>
-				<%= payment.select :year, Time.now.year.upto(Time.now.year + 10).to_a, {:class => "card-expiry-year"} %>
+				<%= payment.select :month, 1.upto(12).to_a,  {},  {:class => "card-expiry-month"} %>
+				<%= payment.select :year, Time.now.year.upto(Time.now.year + 10).to_a, {}, {:class => "card-expiry-year"} %>
 			</div>
 
 		<% end %>
