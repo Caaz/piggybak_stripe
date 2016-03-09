@@ -19,6 +19,9 @@ module PiggybakStripe
 
       def process(order)
         return true if !self.new_record?
+        puts(self)
+        puts("/////")
+        puts(order)
 
         calculator = ::PiggybakStripe::PaymentCalculator::Stripe.new(self.payment_method)
         Stripe.api_key = calculator.secret_key
