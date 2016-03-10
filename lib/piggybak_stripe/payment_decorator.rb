@@ -25,7 +25,6 @@ module PiggybakStripe
           return false
         end
       end
-
     end
   end
 end
