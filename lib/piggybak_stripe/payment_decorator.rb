@@ -17,8 +17,8 @@ module PiggybakStripe
             :amount => (order.total_due * 100).to_i,
             :currency => "usd"
           })
-          self.attributes = { :transaction_id => charge.id,
-                              :masked_number => charge.card.last4 }
+          self.attributes = { :transaction_id => charge.id, :masked_number => charge.source.last4 }
+          # self.send :remove_instance_variable, :stripe_token
           return true
         rescue Stripe::CardError, Stripe::InvalidRequestError => e
           self.errors.add :payment_method_id, e.message
